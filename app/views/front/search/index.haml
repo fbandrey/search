@@ -1,0 +1,8 @@
+.row.d-flex.justify-content-center
+  .col-12.col-md-8
+    #searchApp
+      .text-center
+        %em.fa.fa-spinner.fa-spin.fa-2x.text-muted
+
+- content_for :js do
+  = javascript_pack_tag 'search_app'

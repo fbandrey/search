@@ -1,0 +1,47 @@
+# --- Ignore version control files:
+.git
+.gitignore
+
+# --- Ignore docker and environment files:
+*.Dockerfile
+docker-compose*.yml
+*.env
+.dockerignore
+.travis.yml
+
+# --- Ignore log files:
+**/*.log
+
+# --- Ignore temporary files:
+tmp
+
+# --- Ignore test files:
+Guardfile
+node_modules
+public/assets/vendor/*
+db/pg
+db/test_pg
+
+# --- Ignore OS artifacts:
+**/.DS_Store
+
+# --- Ignore Rails files
+/db/seeds/_fake_settings.seeds.rb
+
+# --- 3: Ignore Development container's Home artifacts:
+# 3.1: Ignore bash / IRB / Byebug history files
+.bash_history
+.byebug_hist
+.byebug_history
+.pry_history
+.guard_history
+
+# 3.3: bundler stuff
+.bundle/*
+
+
+# Ignore devspace.yaml file to prevent image rebuilding after config changes
+devspace.yaml
+
+/k8s/env-vars-secret.yaml
+/k8s/registry-credentials.yaml

@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # Run them manually first:
+  # - env-vars-secret.yaml
+  # - registry-credentials.yaml
+  - db-storage.yaml
+  - db.yaml
+  - rails.yaml
+  - ingress.yaml

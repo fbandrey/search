@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-search-ror
+  namespace: test-search
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3000
+    targetPort: 3000
+  selector:
+    app: test-search-ror
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-search-ror
+  namespace: test-search
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-search-ror
+  template:
+    metadata:
+      labels:
+        app: test-search-ror
+    spec:
+      containers:
+      - name: test-search-ror
+        # image: hub.fbandrey.com/test-search-ror:latest
+        image: ghcr.io/fbandrey/search/test-search-ror:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash"]
+        args: ["-c", "bundle exec rails db:migrate && bundle exec puma -p 3000"]
+        ports:
+        - containerPort: 3000
+        env:
+          - name: POSTGRES_HOST
+            value: test-search-db
+          - name: POSTGRES_DB
+            valueFrom:
+              secretKeyRef:
+                name: env-vars-secret
+                key: pg-db
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: env-vars-secret
+                key: pg-user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: env-vars-secret
+                key: pg-pass
+          - name: RAILS_MASTER_KEY
+            valueFrom:
+              secretKeyRef:
+                name: env-vars-secret
+                key: master-key
+      imagePullSecrets:
+      - name: registry-credentials

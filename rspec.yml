@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  rspec-app:
+    build:
+      context: .
+      dockerfile: ./dev.Dockerfile
+    environment:
+      POSTGRES_HOST: rspec-db
+      POSTGRES_DB: search_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - .:/app
+    depends_on:
+      - rspec-db
+    networks:
+      - search-rspec
+
+  rspec-db:
+    image: postgres:12.2
+    environment:
+      POSTGRES_DB: search_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - search-rspec
+
+networks:
+  search-rspec:

@@ -1,0 +1,67 @@
+# --- hidden directories
+/.bundle
+/.idea
+/.project
+/.sass-cache
+
+# --- hidden files
+.DS_Store
+.powrc
+.rspec-local
+.ruby-gemset
+.rvmrc
+
+# --- directories
+/coverage
+/log
+/node_modules
+/public/assets/vendor/*
+/public/system
+/public/uploads
+/spec/tmp
+/spec/vcr
+/test
+/tmp
+/vendor/bundle
+/db/pg
+/db/test_pg
+/storage/*
+
+# --- files
+/config/app_environment_variables.rb
+/db/structure.sql
+/db/schema.rb
+/npm-debug.log
+/webpack-assets.json
+/rerun.txt
+
+# --- globs
+/*.env
+/*.pdf
+/*.rbc
+/*.sassc
+/*.sublime-*
+/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+yarn-error.log*
+.yarn-integrity
+
+
+# Ignore DevSpace cache and log folder
+.devspace/
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+# Ignore K8s secrets
+/k8s/env-vars-secret.yaml
+/k8s/registry-credentials.yaml
