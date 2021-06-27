@@ -52,4 +52,4 @@ The app is running inside Kubernetes cluster, please find some more notes below.
 * [dev.Dockerfile](https://github.com/fbandrey/search/blob/master/dev.Dockerfile) – Dockerfile for development;
 * [prod.Dockerfile](https://github.com/fbandrey/search/blob/master/prod.Dockerfile) – Dockerfile for production;
 * [build-and-push.yml](https://github.com/fbandrey/search/blob/master/.github/workflows/build-and-push.yml) – Github action to build Docker image for production and push to the private registry;
-* [k8s](https://github.com/fbandrey/search/tree/main/k8s) – Kubernetes config files.
+* [k8s](https://github.com/fbandrey/search/tree/master/k8s) – Kubernetes config files.
