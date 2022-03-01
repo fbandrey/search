@@ -8,4 +8,5 @@ resources:
   - db-storage.yaml
   - db.yaml
   - rails.yaml
+  - tls.yaml
   - ingress.yaml

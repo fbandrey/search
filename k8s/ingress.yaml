@@ -10,7 +10,7 @@ spec:
   tls:
   - hosts:
     - test-search.fbandrey.com
-    secretName: wc-fbandrey-tls
+    secretName: search-fbandrey-tls
   rules:
   - host: test-search.fbandrey.com
     http:
